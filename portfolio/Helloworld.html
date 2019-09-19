@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<style type="text/css">
+body {
+		background-color:silver;
+		font-family:arial;
+		}
+	.Introtext {
+	color:Black;text-align:center;
+	text-decoration:underline;
+	}	
+.Hobbys {
+ display:inline-block;
+ border:1px solid #000; 
+ padding:2px;
+text
+}
+
+.JavaScript
+{
+text-align:Right;
+}	
+
+</style>
+</head>
+<!-- Headings style =  -->
+<body>
+<title style = ""> Site</Title>
+<!-- Class Introtext =  -->
+<div class="Introtext">
+  <h1> Mijn persoonlijke webpagina </h1>
+</div>
+
+<hr>
+<!-- Class introduce =  -->
+<div class="Introduce">
+  <h2 > Even voorstellen </h2>
+  
+<hr>
+ 
+ <p> Hallo mijn naam is Vincent Vermeulen. Ik ben een Industriele automatiseringsstudent op het Avans in Denbosch</p>
+
+
+</div>
+<!-- class Hobbys =  -->
+<div class="Hobbys">
+<h2> Hobbys? </h2>
+
+ <ul>
+ <list>
+                           <li>Voetballen</li>
+                           <li>Uitgaan met vrienden</li>
+                           <li>Films en series</li>
+						   <li>Techniek</li>
+						  
+                        </ul>
+                     </list>
+</div>
+<hr>                      
+<br>	
+<br>	
+
+<div class="JavaScript">
+ 
+<p id="answer">dede</p>
+<form >
+Getal 1: <input type="text" id = "number1"><br>
+Getal 2: <input type="text" id = "number2"><br>
+  <input type="button" value="Optellen!" onclick="sum()">
+
+</form>
+
+  <h6 id = "answer">  </h6>
+
+<script>
+function sum() {
+
+var field1 = document.GetElementById("num1").value;
+var field2 = document.GetElementById("num2").value;
+var result = ParseFloat(field1)+ParseFloat(field2);
+if (!isNan(result))
+{
+<!-- alert(result)
+document.GetElementById("answer").innerHTML = "The answer is" + result;
+}
+}
+</script>
+</div>
+
+
+<!-- class Movie =  -->
+<div class="Movie">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/EV1Ygw6_rCs" 
+	  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+	  allowfullscreen>
+	  </iframe>
+</div>
+<br>  
+<!-- class From? =  -->
+<div class="From?">
+
+<h2> Waar kom ik vandaan? </h2>
+<hr>
+<!-- Image =  -->
+<img  src = "Deil.jpg" alt = "kan afbeelding niet laten zien">
+<br>
+Het mooie <strong> Deil!</strong>... Voor meer informatie zie <a href = "https://nl.wikipedia.org/wiki/Deil" target ="_blank"> Meer info </a>
+<div style = "margin-top:50px"></div>
+</div>
+
+
+</body>
+
+</html>
