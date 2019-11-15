@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400');
+
+* {
+	box-sizing: border-box;
+	font-family : Raleway;
+	color : black;
+
+}
+
+}	
+body {		
+height : 100%;
+		margin: 0;
+		padding: 0;
+		font-family:arial;
+		background-color : red;
+		background-image: url("red-curtains.jpg");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		}
+
+h1  {
+	font-size : 3em;
+	color : White;
+	letter-spacing: 7px;
+	text-decoration : underline;
+	
+}
+.header-main{
+		background-color : rgba(0,0,0,.6);
+		
+		text-align : center;
+
+		background-size: cover;
+		Padding-bottom:10px;
+}
+.nav-main a:hover {
+	background-color : rgba(255,255,255,.3);
+	
+}
+.nav-main  {
+	text-align:center;
+	font-size : 1.1em;
+	font-weight: lighter;
+	Border-bottom: 1px solid rgba(255,255,255,.3)
+	}	
+.nav-main li {
+	margin: 0;
+	display:inline;
+	Color :white
+}
+
+.nav-main a {
+	display :inline-block;
+	padding: 1em;
+	color : White;
+	text-decoration:none;
+	
+}
+.Hobbys {
+ display:inline-block;
+ border:1px solid #000; 
+ padding:2px;
+text
+}
+.nav a {
+
+}
+.JavaScript
+{
+text-align:Right;
+}	
+

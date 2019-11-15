@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400');
+
+* {
+	box-sizing: border-box;
+	font-family : Raleway;
+	color : #D1E8E2;
+	
+}
+
+body {		
+		height : 100%;
+		margin: 0;
+		padding: 0;
+		font-family:arial;
+		background-color : #2C3531;
+		/*background-image: url("red-curtains.jpg");*/
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		color : blue;
+		}
+.Main-Header {
+		text-align : center;
+		font-size : 1.3em;
+		font-weight: lighter;
+		Border-bottom: 1px solid rgba(255,255,255,.3)
+		padding : 0;
+}
+.header {
+		background-color : rgba(0,0,0,.6);
+		
+		text-align : center;
+
+		background-size: cover;
+		Padding-bottom:10px;
+
+}
+.imagelogo {
+	display : inline;
+	float : right;
+	
+	padding-right : 40px;
+	
+}
+
+/*	.Movie {
+	display : inline;
+float : right;-
+	width: 20px;
+	height: 100px;
+}*/
+.imagelogo2 {
+	display : inline;
+	float : right;
+	
+	padding-right : 100px;
+}
+.imagelogo3 {
+	display : inline;
+	float : right;
+	height :500px;
+	width : 600px;
+	padding-right : 100px;
+	
+}
+
+.Main-Header li:hover {
+background-color : rgba(255,255,255,.3);
+}
+
+
+
+.Main-Header li {
+		display : inline;
+		padding : 20px;
+}
+.Main-Header a {
+		display :inline-block;
+		padding: 1em;
+		color : White;
+		text-decoration:none;
+
+}
+.Introduce {
+padding-left : 300px;
+width : 1100px;
+}
+.Movie {
+display : inline;
+float :right;
+padding-top : 1px;
+padding-right : 100px;
+padding-left : 10px;
+	
+}
+.PersonInfo {
+	padding-left : 300px;
+<!--margin-bottom : 2 px;-->
+	
+}
+.PersonInfo ul {
+list-style : none;
+}
+
+.PersonInfo li {
+padding : 3px;
+}
+
+.Education {
+	padding-left : 300px;
+	width : 900px;
+}
+
+.div {
+text-align : center;
+}
+
+.WorkExperience{
+	padding-left : 300px;
+
+}
+h1 {
+	color : #D1E8E2;
+}
+h2 {
+text-decoration : underline;
+color : #D1E8E2;
+
+}
