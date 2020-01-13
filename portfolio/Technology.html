@@ -36,6 +36,9 @@
 		<li class = "nav-Project"> 
 		<a href= "Project.html"> Project </a>
 		</li>
+		<li class = "nav-Excursie"> 
+		<a href= "Excursie.html"> Excursie </a>
+		</li>
 		
 	</ul>
 </nav>
@@ -54,6 +57,12 @@ De opstelling is gerealiseerd m.b.v. 3d printing weken is een workshop gevolgd o
 
 
 </div>
+<div class = "WebDesignImg">
+<img  src = "imgTechnology.png" height="300px" width = "400px" alt = "kan afbeelding niet laten zdien">
+
+</div>
+
+</div>
 <!-- class Hobbys =  -->
 <div class="PersonInfo">
 <h2> Activiteiten</h2>
@@ -67,21 +76,68 @@ De opstelling is gerealiseerd m.b.v. 3d printing weken is een workshop gevolgd o
 	</ul>
 
 
-
+<img  src = "Bordontwerp.png" height="300px" width = "400px" alt = "kan afbeelding niet laten zien">
+<img  src = "Bordschema.png" height="300px" width = "400px" alt = "kan afbeelding niet laten zien">
+<p> Het ESP32 bord wat ontworpen is in het programma Eagle </p>
 </div>
 
 <div class = "Education">
-<h2> Opleidingen </h2>
+<h2> Zelf ontwikkelend project </h2>
+<p>
+Ik merkte al vrij snel tijdens de workshops Smart Technology dat ik geinteresseerd was om mijn eigen project te maken.
+Dit had ermee te maken dat ik web development steeds leuker begon te vinden en erachter kwam dat de ESP32 een eigen interne webserver.
+Via het project heb ik al verschillende communicatie technologieën onderzocht en dit wou ik ook graag in de praktijk gebruiken.
+</p>
+<p > Ik stelde de volgende eisen aan het project:</p>
+<br>
 <ul>
-		<li> 2016 – heden: HBO Elektrotechniek major keuze Industriële automatisering, Avans Hogeschool Den Bosch</li>
-		<li> 2011 – 2016: Middenkader Engineering MBO 4, Koning Willem 1 College Den Bosch</li>
-		<li> 2003-2009: VMBO TL Techniek, Lingeborgh Geldermalsen</li>
-
-</ul>
 
 
+
+<li> Met Wi-Fi een webpage via de ESP32 Hosten</li>
+<p> Met behulp van de WIFI.h library is dit gelukt. Een extern .h c+ bestand is gekoppeld waarin met behulp van CSS en HTML vorm gegeven is aan de webpage
+</p>
+
+<li>Analoge waardes (temperatuur,vochtigheid,droogte,licht intensiteit) uitlezen en automatische waardes op te halen naar de webpage zonder te refreshen </li>
+
+<p>Dit was erg uitdagend, bij het begin is geprobeerd om 1 analoog signaal te versturen. 
+Het automatische ophalen(zonder F5 te gebruiken) bleek erg lastig te zijn en na wat onderzoek is het AJAX protocol gebruikt.
+Dat is een object die gebruik maakt van xml en Http en ervoor zorgt dat bepaalde gedeeltes van de site automatische gerefresht worden.
+
+<p> Nadat 1 analoog signaal gelukt was moesten er nog 4 toegevoegd worden. Omdat er maar 1 kanaal/ object was en ik niet wist hoe ik meerdere http kanalen 
+kon openen heb ik 1 grote JSON formaat string verstuurd en die weer opgesplitst in de data die ik nodig had.
+</p> 
+
+<li> Digitale signalen versturen om het klikaanklik uit systeem te bedienen. </li>
+
+<p> Hiervoor is het SwitchKaku library gebruikt en met het bedienen van de buttons wordt een HTTP request gedaan die dit mogelijk maakt.
+
+<li> Simpele visuals / afbeelding op de webserver krijgen </li> 
+<p> Er is een afbeelding gehost die een schematische weergave van de smart plant laat zien. </p> 
+
+<li> Bereikbaar via verschillende webclients (meerdere gebruikers) </li> 
+
+<p>Ik wou via m'n laptop en mobiel de webpage tegelijkertijd kunnen benaderen  </p>
 </div>
 
+<div class = "imgprojectplant">
+<img  src = "Projectplant.png" style alt = "kan afbeelding niet laten zdien">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sxcw6GF6xEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; 
+gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p> Het resultaat van het project </p> 
+
+<div id="list">
+  <p><iframe src="index.txt" frameborder="0" height="400"
+      width="95%"></iframe></p>
+</div>
+<p>Extern .h bestand</p>
+<div id="list">
+  <p><iframe src="Arduino Code.txt" frameborder="0" height="400"
+      width="95%"></iframe></p>
+</div>
+Arduino code file
+</div>
 
 <!-- class Movie =  -->
 
@@ -89,24 +145,20 @@ De opstelling is gerealiseerd m.b.v. 3d printing weken is een workshop gevolgd o
 <!-- class WorkExperience? =  -->
 <div class="WorkExperience">
 
-<h2> Relevante stages </h2>
-<p> Tijdens mijn stages is er ervaring opgedaan in verschillende sectoren
+<h2>Competenties   </h2>
+<p> 
 <ul>
-		<li> Installatietechniek.</li>
-		<li> Machinebouw </li>
-		<li> Technische dienst</li>
-		<li> Procesautomatisering.</li>
+		<li> Past nieuwe technologieën op het gebied van van IoT, Robotica en 3D-printen toe op een praktijkcasus (ST21),plaatst de casus in een business context (ST22)</li>
+		<p>Er is een 3D tekening gemaakt in Sketch-up van een bakje voor de behuizing van het project. Ook heeft het project veel IOT geralteerde technieken in zich zoals webhosting en Wireless communicatie </p>
+		<li> Vertaalt een praktijkcasus naar een onderzoeksplan, voert deze uit en evalueert de kwaliteit van uitvoering (ST61) </li>
+		<p>In het project is er in een praktijk omgeving gewerkt met de nieuwste technologieën. Denk hierbij aan het communicatie technologie OPC UA. Er is ook veelvuldig contat geweest met verschillende partijen om een grondig onderzoek te krijgen </p> 
+		<li> Communiceert op effectieve wijze zijn bevindingen naar verschillende doelgroepen (ST71)</li>
+		<p>Het internet is vaak geraadpleegd om informatie te krijgen die nodig was om de webserver te hosten vanuit de ESP32. Ook heb ik als student met een electrotechniek
+		achtergrond regelmatig mensen geholpen die daar behoefte aan hadden.  </p>
 
 </ul>
 
-<h2> Relevante Werkervaring </h2>
-<ul>
-		<li> 10-06-2016 – Heden Oproepkracht/Vakantiewerk: Operator glasfabriek ploegendienst.</li>
-		<li> 17-11-2012 tot 22-03-2013: Stage Rademaker B.V.</li>
-		<li> 19-11-2014 tot 7-08-2015: Stage/Vakantiewerk:Coroos, Geldermalsen groentefabriek, Technische dienst.</li>
-		<li>10-06-2016 tot  10-08-2016: Stage/Vakantiewerk:Coroos, Geldermalsen groentefabriek, Technische dienst.</li>
 
-</ul>
 
 </div>
 <div style = "margin-top:50px"></div>

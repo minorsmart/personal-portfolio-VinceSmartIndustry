@@ -1,0 +1,175 @@
+/*
+* ESP32 AJAX Demo
+ * Updates and Gets data from webpage without page refresh
+ * https://circuits4you.com
+ */
+ #include "DHT.h"
+
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <WebServer.h>
+#include "index.h"  //Web page header file
+#include "switchKaKu.h"
+#define TRANSMITTERID1 9029
+#define LED 27  //On board LED
+
+#define DHTPIN 2     // Digital pin connected to the DHT sensor
+#define DHTTYPE DHT11   // DHT 11 
+WebServer server(80);
+DHT dht(DHTPIN, DHTTYPE);
+bool startAuto = false;
+bool pumpon = false;
+int intWaterValue = 600;
+float t;
+float h;
+//Enter your SSID and PASSWORD
+const char* ssid = "H369AAD9745";
+const char* password = "3C6E7AED794A";
+
+//===============================================================
+// This routine is executed when you open its IP in browser
+//===============================================================
+void handleRoot() {
+ String s = MAIN_page; //Read HTML contents
+ server.send(200, "text/html", s); //Send web page
+}
+
+void handleLED() {
+ String ledState = "OFF";
+ String t_state = server.arg("LEDstate"); //Refer  xhttp.open("GET", "setLED?LEDstate="+led, true);
+ Serial.println(t_state);
+ if(t_state == "1")
+ {
+  switchKaku(4, TRANSMITTERID1, 1, 1, true, 3);
+  ledState = "ON"; //Feedback parameter
+ }
+ else
+ {
+  switchKaku(4, TRANSMITTERID1, 1, 1, false, 3);
+  ledState = "OFF"; //Feedback parameter  
+ }
+ 
+ server.send(200, "text/plane", ledState); //Send web page
+}
+
+void handleLED2() {
+ String ledState2 = "OFF";
+ String t_state = server.arg("LEDstate2"); //Refer  xhttp.open("GET", "setLED?LEDstate="+led, true);
+ Serial.println(t_state);
+ if(t_state == "1")
+ {
+  startAuto = true;
+   ledState2 = "ON"; //Feedback parameter
+ }
+ else
+ {
+   startAuto = false;
+  ledState2 = "OFF"; //Feedback parameter  
+ }
+ 
+ server.send(200, "text/plane", ledState2); //Send web page
+}
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------------- 
+void handleADC() {
+  ReadTemperature();
+ int a = analogRead(39);
+ intWaterValue = analogRead(36);
+    
+     
+ 
+ String Light = String(a);
+ String adcValue = "{\"Light\": " +Light+",\"Water\": " +h+ ", \"Temperature\": " +t+ ",\"StatusWater\": " +intWaterValue+",\"Pump\": "+pumpon+"}";
+
+Serial.println(adcValue);
+ server.send(200, "text/plane", adcValue); //Send ADC value only to client ajax request
+}
+void ReadTemperature() {
+  delay(2000);
+
+  // Reading temperature or humidity takes about 250 milliseconds!
+  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
+  h = dht.readHumidity();
+  // Read temperature as Celsius (the default)
+  t = dht.readTemperature();
+ 
+  // Check if any reads failed and exit early (to try again).
+  if (isnan(h) || isnan(t) ) {
+    Serial.println(F("Failed to read from DHT sensor!"));
+    return;
+  }
+
+  
+  // Compute heat index in Celsius (isFahreheit = false)
+
+}
+ 
+//===============================================================
+// Setup
+//===============================================================
+ 
+void setup(void){
+   pinMode(LED,OUTPUT); 
+  Serial.begin(115200);
+  Serial.println();
+  Serial.println("Booting Sketch...");
+    Serial.println(F("DHTxx test!"));
+
+  dht.begin();
+/*
+//ESP32 As access point
+  WiFi.mode(WIFI_AP); //Access Point mode
+  WiFi.softAP(ssid, password);
+*/
+//ESP32 connects to your wifi -----------------------------------
+  WiFi.mode(WIFI_STA); //Connectto your wifi
+  WiFi.begin(ssid, password);
+ 
+  Serial.println("Connecting to ");
+  Serial.print(ssid);
+ 
+  //Wait for WiFi to connect
+  while(WiFi.waitForConnectResult() != WL_CONNECTED){      
+      Serial.print(".");
+    }
+    
+  //If connection successful show IP address in serial monitor
+  Serial.println("");
+  Serial.print("Connected to ");
+  Serial.println(ssid);
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());  //IP address assigned to your ESP
+//----------------------------------------------------------------
+ 
+  server.on("/", handleRoot);      //This is display page
+  server.on("/setLED", handleLED);
+   server.on("/setLED2", handleLED2);
+  server.on("/sensors", handleADC);//To get update of ADC Value only
+  
+ 
+  server.begin();                  //Start server
+  Serial.println("HTTP server started");
+}
+ 
+//===============================================================
+// This routine is executed when you open its IP in browser
+//===============================================================
+void loop(void){
+  server.handleClient();
+
+ if (intWaterValue < 100 && startAuto == true ) {
+       digitalWrite(27, HIGH);
+           pumpon = true;     }     
+      else {
+    digitalWrite(27, LOW);
+    pumpon = false;
+      }
+
+
+ 
+  delay(50);
+}s
